@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  users: MyString
+  interests: MyString
+
+two:
+  users: MyString
+  interests: MyString
