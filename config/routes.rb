@@ -1,22 +1,16 @@
 Meetapp::Application.routes.draw do
-  resources :challenges
-
-  resources :places
-
-  resources :activities
-
-  resources :messages
-
-  resources :interests
-
-  resources :groups
-
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   get 'log_in' => 'sessions#new', :as => 'log_in'
   get 'sign_up' => 'users#new', :as => 'sign_up'
 
   resources :users
   resources :sessions
+  resources :challenges
+  resources :places
+  resources :activities
+  resources :messages
+  resources :interests
+  resources :groups
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
