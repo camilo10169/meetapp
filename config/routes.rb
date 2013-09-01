@@ -1,4 +1,14 @@
 Meetapp::Application.routes.draw do
+  resources :challenges
+
+  resources :places
+
+  resources :activities
+
+  resources :messages
+
+  resources :interests
+
   resources :groups
 
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
