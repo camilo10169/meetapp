@@ -23,22 +23,6 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.url_field :photo %>
-  </div>
-  <div class="field">
-    <%= f.label :interests %><br>
-    <%= collection_select(:interests, :interest_id, Interest.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= collection_select(:age, :age_id, Age.all, :id, :range) %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
