@@ -1,34 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<section>
+  <section>
+    <article>
+      <img src="<%= @user.photo %>">
+      <p><%= @user.name %></p>
+    </article>
+  </section>
+  <section>
+    <h2>More info</h2>
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @user.photo %>
-</p>
-
-<p>
-  <strong>Interests:</strong>
-  <%= @user.interests %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :photo %><br>
+        <%= f.url_field :photo %>
+      </div>
+      <div class="field">
+        <%= f.label :interests %><br>
+        <%= collection_select(:interests, :interest_id, Interest.all, :id, :name, { prompt: "Please select"}, { multiple: true, size: 10 }) %>
+      </div>
+      <div class="field">
+        <%= f.label :age %><br>
+        <%= collection_select(:age, :age_id, Age.all, :id, :range) %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </section>
+</section>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

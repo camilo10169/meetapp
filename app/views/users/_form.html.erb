@@ -33,7 +33,8 @@
   </div>
   <div class="field">
     <%= f.label :interests %><br>
-    <%= collection_select(:interests, :interest_id, Interest.all, :id, :name) %>
+    <%= collection_select(:interests, :interest_id, Interest.all, :id, :name, { :prompt => "Please select"},
+                                   { :multiple => true, :size => 10 }) %>
   </div>
   <div class="field">
     <%= f.label :age %><br>
