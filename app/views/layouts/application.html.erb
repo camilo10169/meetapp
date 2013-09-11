@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header id='head'>
+	<img src="https://si0.twimg.com/profile_images/482041262/apple-touch-icon-trans-bkgd.png" alt="">
+	<h1>MEETAPP</h1>
+</header>
 <section>
   <% if current_user %>
     <%= link_to 'Log out', log_out_path %>
@@ -15,6 +18,8 @@
 </section>
 
 <%= yield %>
-
+<footer id='foot'>
+	<h1>Copyright blabla</h1>
+</footer>
 </body>
 </html>

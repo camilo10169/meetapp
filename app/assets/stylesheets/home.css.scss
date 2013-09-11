@@ -1,7 +1,10 @@
 #first{
-	
+	margin:0 auto;
+	width:50%;
 }
 #second, #third{
 	display:inline-block;
 	vertical-align:top;
+	border-style:solid;
+	border-width:3px;
 }

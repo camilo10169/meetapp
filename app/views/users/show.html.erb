@@ -4,7 +4,6 @@
   <section>
     <article>
       <img src="<%= @user.photo %>">
-      <p><%= @user.name %></p>
     </article>
   </section>
   <section>
@@ -32,11 +31,14 @@
       </div>
       <div class="field">
         <%= f.label :interests %><br>
-        <%= collection_select(:interests, :interest_id, Interest.all, :id, :name, { prompt: "Please select"}, { multiple: true, size: 10 }) %>
+        <% interests_array = Interest.all.map { |interest| [interest.name, interest.name] } %>
+        <%= select_tag(:interests, options_for_select(interests_array), multiple: true, size: 10) %>
+        <%#= f.check_box :interests_array, {}, true, false %>
       </div>
       <div class="field">
         <%= f.label :age %><br>
-        <%= collection_select(:age, :age_id, Age.all, :id, :range) %>
+        <% ages_array = Age.all.map { |age| [age.range, age.range] } %>
+        <%= f.select(:age, ages_array) %>
       </div>
       <div class="actions">
         <%= f.submit %>
